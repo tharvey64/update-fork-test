@@ -1,16 +1,33 @@
-# The Fibonacci Sequence
+#####TESTS
+# Temperature Converters
 
-* This exercise is another common programming brain teaser
-* The fibonacci sequence is a list of numbers where each is the sum of the previous two. 
-* Take a look at the example below
+* Time for more practice with functions and math
 
-```
-0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...and so on
-```
-* You can also read more about it [here](http://en.wikipedia.org/wiki/Fibonacci_number)  
+#### Exercise 1
 
-# Exercise
+* Write a function named fahrenheit_to_celsius
+* It will take a number(temperature) as a parameter
+* It will convert that number from Fahrenheit to Celsius
+* It will return out the converted temperature
+* The equation to convert is this `C = (F - 32) * 5/9`
 
-* Write a function that will take in a number
-* The function should print the fibonacci sequence up to, but not including, that number.
-* Each number should be printed on a new line.
+#### Exercise 2
+
+* Same thing but reverse!
+* Write a function named celsius_to_fahrenheit
+* It will take a number(temperature) as a parameter
+* It will convert that number from Celsius to Fahrenheit
+* It will return out the converted temperature
+* The equation to convert is this `F = (C * 9/5) + 32`
+
+#### Testing
+
+* What do the following numbers return?
+	* Fahrenheit to Celsius
+		* fahrenheit_to_celsius(10)
+		* fahrenheit_to_celsius(75)
+		* fahrenheit_to_celsius(245)
+	* Celsius to Fahrenheit
+		* celsius_to_fahrenheit(10)
+		* celsius_to_fahrenheit(75)
+		* celsius_to_fahrenheit(245)
