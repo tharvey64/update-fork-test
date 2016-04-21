@@ -1,179 +1,223 @@
-# JavaScript Data Structures
+# Loops and Conditionals
 
-### Table of Contents:
+### <a name="home"></a>Table of Contents:
+* [Instruction](#instruction) - JavaScript Loops and Conditionals coming at ya
+* [Practice Problems](#practice-problems) - Testing your new knowledge
+* [Glossary](#glossary) - More vocabulary words!
 
-* [Instruction](#instruction) - Your review and learning about JavaScript happens here.
-* [Practice Problems](#practice-problems) - Test some of your new JavaScript knowledge.
-* [Glossary](#glossary) - Keep learning and memorizing this vocabulary.
+# <a name="instruction"></a>Instruction
+#### Introduction
 
-### What is a Data Structure
+* JavaScript also gives us `Conditional` and `Looping` functionality
+	* [`Conditional`](#glossary) statements give us the ability to check conditions and change the behavior of the program accordingly.
+	* [`Loops`](#glossary) repeatedly execute a set of programming commands.
+* The utilization and syntax in this section is much different between JavaScript and Python.
 
-* A [`data structure`](#glossary) is a programming tool that allows us to hold multiple values at once.
-* The two Python `data structures` we learned earlier were `lists` and `dictionaries`.
-* The terms for these `data structures` in JavaScript are [`arrays`](#glossary) and [`objects`](#glossary).
+#### Conditionals - The If/Else statement
 
-#### JavaScript Arrays
-
-* `Arrays` in JavaScript act exactly the same as `lists` in Python.
-* `Arrays` are used to store multiple values.
-* These values can be different data types (strings or numbers).
-* We create `arrays` the same way we made `lists`. With square brackets `[]`.
-* The values are separated with commas.
-* `Arrays` can be assigned to variables.
-* Here are some examples of JavaScript Arrays:
-
-```javascript
-var numbers = [1, 30, 26, 8, 99];
-
-var randomInfo = ["word", 23, "python", 3];
-```
-* Every value inside of an array can be called an `element`.
-* Remember to use JavaScript `syntax` when declaring your variables, and remember how that syntax is different from Python `syntax`?
-
-#### JavaScript Objects
-
-* A JavaScript [`object`](#glossary) is a data structure similar to a Python `dictionary`.
-	* Some tutorials may refer to these as `associative arrays`. For the purpose of this tutorial we will use the term Javascript `objects`.
-* `Objects` will have their information stored in a [`key:value`](#glossary) format.
-* `Objects` follow the same parameters as python dictionaries:
-	* They can be assigned to a variable.
-	* They store their information as  `key:value` pairs. We also call this [`key:value mappings`](#glossary).
-	* They separate each of their `key:value` elements with commas.
-	* They are opened and closed with curly braces: `{}`.
-* Below are two examples of creating a variable with a JavaScript Object:
+* We used many conditional statements in the previous sections and we're not going to stop now. The If/Else statement is almost the same in JavaScript. Almost...
+* Remember the `if/else` statement will have conditions which allow us to run a block of code when that condition is true. We call this [`control flow`](#glossary).
+* JavaScript If/Else syntax: `if`, `else if`, and `else`
+* Each condition is followed with their code block wrapped in curly braces `{}`
 
 ```
-var movie = {
-	"title" : "Teenage Mutant Ninja Turtles",
-	"release_year" : 1990,
-	"imdb_rating" : 6.7,
-	"director" : "Steve Barron",
-};
-
-var myPet = {
-	"name": "Shadow",
-	"type": "Dog",
-	"color": "Black",
-	"age": 16,
+if (this condition is true){
+	run this code
+} else if (this condition is true){
+	run this code
+} else {
+	run this code
 };
 ```
-
-#### Iterable and Indexing
-
-* Remember those words [`iterable`](#glossary) and [`indexing`](#glossary)? Just in case you need a refresher:
-	* An `iterable` is a programming object that can return it's values one at a time
-	* An [`Index`](#glossary) is what we use to reference a specific value inside an iterable. Remember that if you want to sound fancy, the plural of `index` is `indices`!
-	* `Indices` always start from zero and increment by 1.
-	* `Strings` and `Arrays` are iterables and we can target a specific character or value using an index.
+* JavaScript not only requires curly braces `{}` around the code blocks but also parenthesis `()` around the conditions
 
 ```
-var myPets = ["Fluffy", "Shadow", "Snapper", "Tweety"];
+var favNum = 8;
 
-console.log(myPets[0]); // "Fluffy"
-console.log(myPets[2]); // "Snapper"
-```
-* The same indexing procedure can be done with `Strings`:
-
-```
-var intro = "Hello World";
-
-console.log(intro[0]); // "H"
-console.log(intro[6]); // "W"
-console.log(intro[9]); // "l"
-```
-* If you're wondering why JavaScript `objects` are not here, it's because they are not `iterables`. They're not `iterables`, because  they already have their own mapping reference. In the example below, "title", "year", and "cast" are the mapping reference for the "movie" `object`.
-
-```
-var movie = {
-	"title" : "Zoolander",
-	"year" : 2001
-	"cast" : ["Will Ferrall", "Ben Stiller", "Owen Wilson"],
+if (favNum < 5){
+	return "Your number is less than five";
+} else if (favNum < 10){
+	return "Your number is less than ten";
+} else {
+	return "Your number is pretty"
 };
 
-console.log(movie["title"]); // "Zoolander"
-console.log(movie["year"]); // 2001
-console.log(movie["cast"]); // ["Will Ferrall", "Ben Stiller", "Owen Wilson"]
+[output] "Your number is less than ten"
 ```
 
-***Note***
+#### For Loops
 
-* Remember that nice `print()` function we were able to use in Python?
-* JavaScript has something that does the same thing, it's called `console.log()`
-* We used it a bunch of times in earlier examples but here's one more example:
+* For Loops are not only a big part of Python, and JavaScript but a big part of programming in general.
+* JavaScript [`for loops`](#glossary) work and act much differently than what you may be used to from the previous Python sections.
+* Let's make an array of animals and loop through it to console.log out all the animals one by one:
 
 ```
-var intro = "Hello World";
+var animals = ["dog", "cat", "bird", "turtle", "fish", "hamster", "lizard"];
 
-console.log(intro);
-// "Hello World"
+for (var i = 0; i < animals.length+1; i++){
+	console.log(animals[i])
+};
 
-var myList = ["abc", "xyz", "123", "Will Ferrall"];
+"dog"
+"cat"
+"bird"
+"turtle"
+"fish"
+"hamster"
+"lizard"
+```
+* So that loop looks very different than what we did in Python.
+* Notice there are three parts in the for loop parenthesis section:
+* `var i = 0` - this part initializes a variable **`i`** to the value 0.
+	* `i` is just a placeholder, we could just have easily written `var x = 0`
+	* `i` is used as a best practice because it usually references the `index` value inside an iterable.
+* `i < animals.length + 1` - this is a condition saying as long as `i` is less than the length of the animals `array`
+	* We used a `+1` at the end to make sure we console log "lizard"
+* `i++` is telling us that after the loop runs the code block it will increment the value of `i` by one
+	* We can also manipulate this to be anything we want. `e.g. i += 2`
+* The code between the curly brackets `{}` will be what is run at every loop until the loop is completed
+* Here's one more example:
 
-console.log(my_list[3]);
-// "Will Ferrall"
+```
+numbers = [1,22, 54, 32, 87, 99, 80]
+
+for (var i = 0; i<numbers.length+1; i++){
+	console.log(numbers[i])
+};
+
+1
+22
+54
+32
+87
+99
+80
+```
+
+#### While Loops
+
+* Remember we had access to another loop? The [`while loop`](#glossary) works in JavaScript the same way as Python.
+* Again, there are a few syntax differences between Python and JavaScript.
+* Here is an example:
+
+```
+var i = 0;
+
+while (i < 10){
+	console.log(i)
+	i += 1
+};
+
+console.log("all done!");
+
+[output]
+1
+2
+3
+4
+5
+6
+7
+8
+9
+all done!
+```
+* The loop is evaluating the condition in the parenthesis `i < 10`
+* If the condition is true the code will run. If the condition is false JavaSCript will exit the statement.
+	* Notice inside the code block we are incrementing i so it will eventually make the condition evaluate to false.
+* If your condition will always remain true the loop will never end. This is known as an `inifite loop`
+* Below is a similar example except the condition was changed and it has now become an infinite loop
+
+```
+var i = 10;
+while (i > 5){
+	console.log(i);
+	i += 1;
+};
+```
+
+#### Built In Methods
+
+* Like Python, JavaScript comes with their own built in [`methods`](#glossary)
+* We already saw one of them in the for loop examples. That is the `.length` method
+
+***.length***
+
+* `.length` can be written behind any variable that is an iterable and return the number of elements contained within that iterable.
+	* Remember an iterable is a data type or data structure that can be looped through, such as a string or array.
+* Below is an example of grabbing the length in an array:
+
+```
+[input] var turtles = ["Leo", "Raph", "Donny", "Mickey"];
+[input] console.log(turtles.length);
+[output] 4
+```
+* How about a string?
+
+```
+[input] var hi = "Byte Academy rulez";
+[input] console.log(hi.length);
+[output] 18
+```
+* How about JavaScript Objects?
+
+```
+var hero = {
+	"Name": "Peter Parker",
+	"Universe": "Marvel",
+	"City": "New York",
+	"Age": 18,
+};
+[input] console.log(hero.length);
+[output] undefined
+```
+* Woah what is this undefined result? Well JavaScript Objects read these data structures as key:value mappings, so it is not an `iterable` that can be measured with the `.length` method
+
+***Examples with Functions***
+
+* Let's take a look at these concepts in action
+* I want a function that will tell me the length of any array I give it
+
+```
+var names = ["Peter Parker", "Matt Murdock", "Charles Xavier"]
+
+var numbers = [123, 654, 32, 8012, 43, 2, 78, 984, 12]
+
+var arrLengths = function(arr){
+	console.log(arr.length)
+};
+
+arrLengths(names) === 3
+
+arrLengths(numbers) === 9
 ```
 
 ---
 
 # Exercises
 
-#### Exercise 1
+#### FizzBuzz
 
-* Create a `array` containing the following strings.
-	* "Leonardo"
-	* "Raphael"
-	* "Michaelangelo"
-	* "Donnatello"
-* Assign this `array` to a variable called `turtles`
-
-#### Exercise 2
-
-* Take the information below and make them into two separate dictionaries
-* Assign those two dictionaries to two separate variables
-* The variable names should be: `michaela` and `steve`
-	* Remember, when declaring your variables, they are lowercase
-
-```
-Name: Michaela
-Gender: Female
-Height in cm: 178
-Job: Visual Artist
-Parents: Aimee, Louis
-Pets: Fezzy, Rufus
-```
-
-```
-Name: Steve
-Gender: Male
-Height in cm: 160
-Job: Graphic Designer
-Nickname: The Cow
-Friends: Stephen, Stephanie, Stefan
-Jobs: Graphic Designer at Acme Corp, Bartender at Banter
-```
-
-#### Exercise 3
-
-* Console.log the `Job` of Michaela
-* Console.log the `Pets` of Michaela
-* Console.log the `Nickname` of Steve
-* Console.log the `Jobs` of Steve
+* FizzBuzz is a common interview brain teaser.
+* You will have to write a function that will take in a number as an argument
+* If the number is divisible by 3, print "Fizz"
+* If the number is divisible by 5, print "Buzz"
+* If the number is divisible by 3 and 5, print "FizzBuzz"
+* If the number is not divisible by 3 or 5, print "This number is not fizzy"
 
 # <a name="glossary"></a>Glossary
 You should memorize all these words. If you're having trouble remembering them, get yourself some index cards and make flashcards and study. These are import key words for programmers.
 
-**Array** - A named collection of ordered values, where each value is accessible by a numbered index. Similar to a Python `list`.
+**Block** - A section of code that is grouped together
 
-**Assign** - To store a value in a variable.
+**Condition** - An expression that functions similar to a question and evaluates to either True or False
 
-**Data structure** - A programming tool that allows us to hold multiple values at once.
+**Control flow** - The order which statements or expressions are executed in a program
 
-**Iterable** - A number that corresponds to an element's order within a list.
+**For loop** - A type of loop that begins with a for statement which gives us the ability to iterate over items in a sequence.
 
-**Iterable** - A data structure that can return it's values one at a time.
+**Loop** - Repeated execution of a set of programming commands
 
-**key:value** - A pair of items in an object. Keys are used to look up values in an object.
+**Method** - While there are key differences between methods and functions, at this point, know that we're using "method" as a synonym for "function".
 
-**key:value mappings** - The rules for converting a `key` to a `value`, or vica versa.
-
-**Object** - A named data structure where each item has a key and a corresponding value.
+**While loop** - A loop that repeatedly executes a set of commands as long as a given condition is True.
