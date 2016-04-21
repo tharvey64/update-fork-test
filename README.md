@@ -1,223 +1,115 @@
-# Loops and Conditionals
+# Variables and Data Types
 
 ### <a name="home"></a>Table of Contents:
-* [Instruction](#instruction) - JavaScript Loops and Conditionals coming at ya
-* [Practice Problems](#practice-problems) - Testing your new knowledge
-* [Glossary](#glossary) - More vocabulary words!
+* [Instruction](#instruction) - In this section we will be learning what variables and data types look like in JavaScript. They are written almost the same as in Python. ***Almost...***
+* [Practice Problems](#practice-problems) - test your new AND current knowledge!
+* [Glossary](#glossary) - Make sure to look here to review your programming vocabulary!
 
 # <a name="instruction"></a>Instruction
-#### Introduction
 
-* JavaScript also gives us `Conditional` and `Looping` functionality
-	* [`Conditional`](#glossary) statements give us the ability to check conditions and change the behavior of the program accordingly.
-	* [`Loops`](#glossary) repeatedly execute a set of programming commands.
-* The utilization and syntax in this section is much different between JavaScript and Python.
+As we begin our first section on JavaScript, it's worth noting that you'll see a lot of similarities between this JavaScript lesson about variables and data types and the corresponding Python lesson on variables and data types that you completed earlier in this course. What you'll find is that the concepts you learned in the Python lesson, such as the definition of [`variable`](#glossary), are the same no matter what programming language you use, whether it's Python, JavaScript, or any other languages you may learn in the future, such as C, Ruby, Java, etc. This makes learning a second or third programming language much easier than learning your first programming language.
 
-#### Conditionals - The If/Else statement
+Recognize that we've intentionally made this JavaScript lesson very similar to its corresponding Python lesson. We hope that this journey through definitions like [`variable`](#glossary) and concepts like [`assignment`](#glossary) will help to solidify those ideas in your head.
 
-* We used many conditional statements in the previous sections and we're not going to stop now. The If/Else statement is almost the same in JavaScript. Almost...
-* Remember the `if/else` statement will have conditions which allow us to run a block of code when that condition is true. We call this [`control flow`](#glossary).
-* JavaScript If/Else syntax: `if`, `else if`, and `else`
-* Each condition is followed with their code block wrapped in curly braces `{}`
+You'll also notice key differences between JavaScript and Python and how the two languages implement variables and data types. You'll encounter some new concepts like [`camelCase`](#glossary) and [`syntax`](#glossary) that will push your understanding of programming to a new level.
 
-```
-if (this condition is true){
-	run this code
-} else if (this condition is true){
-	run this code
-} else {
-	run this code
-};
-```
-* JavaScript not only requires curly braces `{}` around the code blocks but also parenthesis `()` around the conditions
+Just because this section is similar to the corresponding Python lesson on variables and data types, you shouldn't make the mistake of skimming this new JavaScript material. Read it slowly and carefully, and make sure you understand all of it before moving on to the next section.
 
-```
-var favNum = 8;
+Sorry if we got kind of heavy there. We're serious about you succeeding as a programmer, but we also like to have fun along the way. [See: here's a picture of our favorite internet pug](http://itsdougthepug.tumblr.com/post/134559118051/netflix-party-of-one-doug).
 
-if (favNum < 5){
-	return "Your number is less than five";
-} else if (favNum < 10){
-	return "Your number is less than ten";
-} else {
-	return "Your number is pretty"
-};
+### What are Variables?
 
-[output] "Your number is less than ten"
+
+ -  [`Variables`](#glossary): Terms we create to reference a value
+ - A [`value`](#glossary) is a piece of data we can manipulate through programming, such as **31** or **"kthxbai"**.
+ - Imagine each variable as an empty storage container. That variable storage container contains a value.
+ - We can [`assign`](#glossary) any value/values to a variable using one equal sign (=), and we call this the [`assignment operator`](#glossary). At this point we are putting items into our storage container to use later.
+* JavaScript Variable [`syntax`](#glossary) is different from Python syntax.
+    * Syntax - The arrangement and order of words, letters, and characters in a program.
+* A JavaScript variable is declared first with the word `var` followed by the name of your variable
+    * It is written in [camelCase](#glossary). It cannot start with a number or special character.
+        * `camelCase` is indicating a different word with a capitalized letter
+
+```javascript
+var book = "Introduction to Algorithms";
+
+var favoriteNumber = 7;
+
+var petName = "Barkley";
 ```
 
-#### For Loops
+### Data Types
 
-* For Loops are not only a big part of Python, and JavaScript but a big part of programming in general.
-* JavaScript [`for loops`](#glossary) work and act much differently than what you may be used to from the previous Python sections.
-* Let's make an array of animals and loop through it to console.log out all the animals one by one:
+***Data Types again?!? Yep. Let's see if JavaScript has anything different...***
 
+#### Strings
+
+* [`Strings`](#glossary) are any combination of numbers and/or letters wrapped in quotes
+* What do strings look like in JavaScript? Pretty much the same as Python. The only differences in the examples below is the `syntax`.
+* JavaScript strings are declared with the keyword `var`, variables names use `camelCase`, and the line on which the variable is declared ends with a **semi-colon**.
+
+```javascript
+var variableName = "Hello World";
+
+var song = "Mambo #5";
+
+var numberString = "1234";
 ```
-var animals = ["dog", "cat", "bird", "turtle", "fish", "hamster", "lizard"];
+* We can do plenty of things with strings. Such as [`concatenation`](#glossary). Remember what that means?
+    * We can add different strings together to form a brand new one.
+* Here's an example of adding variables into a string.
 
-for (var i = 0; i < animals.length+1; i++){
-	console.log(animals[i])
-};
+```javascript
+var name = "Chadwick Boseman";
 
-"dog"
-"cat"
-"bird"
-"turtle"
-"fish"
-"hamster"
-"lizard"
+var hero = "Black Panther";
+
+console.log(name + " will be playing " + hero + " in the new superhero movie")
 ```
-* So that loop looks very different than what we did in Python.
-* Notice there are three parts in the for loop parenthesis section:
-* `var i = 0` - this part initializes a variable **`i`** to the value 0.
-	* `i` is just a placeholder, we could just have easily written `var x = 0`
-	* `i` is used as a best practice because it usually references the `index` value inside an iterable.
-* `i < animals.length + 1` - this is a condition saying as long as `i` is less than the length of the animals `array`
-	* We used a `+1` at the end to make sure we console log "lizard"
-* `i++` is telling us that after the loop runs the code block it will increment the value of `i` by one
-	* We can also manipulate this to be anything we want. `e.g. i += 2`
-* The code between the curly brackets `{}` will be what is run at every loop until the loop is completed
-* Here's one more example:
+* [`console.log`](#glossary) allows us to print out text onto our computer terminal. Similar to `print` in Python
 
+#### Numbers
+
+***There is a major different between Python and JavaScript in this section.***
+
+* Javascript just has numbers, you no longer need to concern yourself with Integers and Floats. ***FREEDOM!***
+* As always here are some examples below
+
+```javascript
+var myNumber = 1234;
+var myOtherNumber = 3.14159;
+var awesomeNumber = 42;
 ```
-numbers = [1,22, 54, 32, 87, 99, 80]
-
-for (var i = 0; i<numbers.length+1; i++){
-	console.log(numbers[i])
-};
-
-1
-22
-54
-32
-87
-99
-80
-```
-
-#### While Loops
-
-* Remember we had access to another loop? The [`while loop`](#glossary) works in JavaScript the same way as Python.
-* Again, there are a few syntax differences between Python and JavaScript.
-* Here is an example:
-
-```
-var i = 0;
-
-while (i < 10){
-	console.log(i)
-	i += 1
-};
-
-console.log("all done!");
-
-[output]
-1
-2
-3
-4
-5
-6
-7
-8
-9
-all done!
-```
-* The loop is evaluating the condition in the parenthesis `i < 10`
-* If the condition is true the code will run. If the condition is false JavaSCript will exit the statement.
-	* Notice inside the code block we are incrementing i so it will eventually make the condition evaluate to false.
-* If your condition will always remain true the loop will never end. This is known as an `inifite loop`
-* Below is a similar example except the condition was changed and it has now become an infinite loop
-
-```
-var i = 10;
-while (i > 5){
-	console.log(i);
-	i += 1;
-};
-```
-
-#### Built In Methods
-
-* Like Python, JavaScript comes with their own built in [`methods`](#glossary)
-* We already saw one of them in the for loop examples. That is the `.length` method
-
-***.length***
-
-* `.length` can be written behind any variable that is an iterable and return the number of elements contained within that iterable.
-	* Remember an iterable is a data type or data structure that can be looped through, such as a string or array.
-* Below is an example of grabbing the length in an array:
-
-```
-[input] var turtles = ["Leo", "Raph", "Donny", "Mickey"];
-[input] console.log(turtles.length);
-[output] 4
-```
-* How about a string?
-
-```
-[input] var hi = "Byte Academy rulez";
-[input] console.log(hi.length);
-[output] 18
-```
-* How about JavaScript Objects?
-
-```
-var hero = {
-	"Name": "Peter Parker",
-	"Universe": "Marvel",
-	"City": "New York",
-	"Age": 18,
-};
-[input] console.log(hero.length);
-[output] undefined
-```
-* Woah what is this undefined result? Well JavaScript Objects read these data structures as key:value mappings, so it is not an `iterable` that can be measured with the `.length` method
-
-***Examples with Functions***
-
-* Let's take a look at these concepts in action
-* I want a function that will tell me the length of any array I give it
-
-```
-var names = ["Peter Parker", "Matt Murdock", "Charles Xavier"]
-
-var numbers = [123, 654, 32, 8012, 43, 2, 78, 984, 12]
-
-var arrLengths = function(arr){
-	console.log(arr.length)
-};
-
-arrLengths(names) === 3
-
-arrLengths(numbers) === 9
-```
-
----
-
-# Exercises
-
-#### FizzBuzz
-
-* FizzBuzz is a common interview brain teaser.
-* You will have to write a function that will take in a number as an argument
-* If the number is divisible by 3, print "Fizz"
-* If the number is divisible by 5, print "Buzz"
-* If the number is divisible by 3 and 5, print "FizzBuzz"
-* If the number is not divisible by 3 or 5, print "This number is not fizzy"
+If you didn't read this before you should take a gander now. It's still a bonus interesting bonus: [The importance of 42](http://www.independent.co.uk/life-style/history/42-the-answer-to-life-the-universe-and-everything-2205734.html).
+# <a name="practice-problems"></a>Practice Problems
+* Create the following variables and assign them any value you'd like
+    * name
+    * age
+    * favorite_movie
+    * favorite_athelete
+    * year
 
 # <a name="glossary"></a>Glossary
 You should memorize all these words. If you're having trouble remembering them, get yourself some index cards and make flashcards and study. These are import key words for programmers.
 
-**Block** - A section of code that is grouped together
+**Assign** - To store a value in a variable.
 
-**Condition** - An expression that functions similar to a question and evaluates to either True or False
+**Assignment Operator** - A single equal sign. Looks like this **=** . Links a variable name (to the left of the assignment operator) and a value (to the right of the assignment operator).
 
-**Control flow** - The order which statements or expressions are executed in a program
+**camelCase** - A convention for writing variable names where the first word in variable name is lowercase and each subsequent word is capitalized. Example: myVariableName.
 
-**For loop** - A type of loop that begins with a for statement which gives us the ability to iterate over items in a sequence.
+**Concatenation** - Adding two strings together to form one string.
 
-**Loop** - Repeated execution of a set of programming commands
+**console.log** - JavaScript function that allows us to print out text onto our computer terminal. Similar to `print` in Python.
 
-**Method** - While there are key differences between methods and functions, at this point, know that we're using "method" as a synonym for "function".
+**Floats** - Number values with decimal points, such as 3.14159.
 
-**While loop** - A loop that repeatedly executes a set of commands as long as a given condition is True.
+**Integer** - A number value such as 2. Does not include fractions or decimal numbers.
+
+**Syntax** - The arrangement and order of words, letters, and characters in a program.
+
+**String** - A value that is enclosed in quotation marks.
+
+**Value** - A piece of information that can be used by a computer, such as a string or a number.
+
+**Variable** - Names that refer to a value.
